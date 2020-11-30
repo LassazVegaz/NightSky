@@ -1,0 +1,96 @@
+body {
+	width: 100vw;
+	height: 100vh;
+	margin: 0;
+	overflow: hidden;
+	position: relative;
+}
+
+// Moon
+$moon-size: 80px;
+.moon {
+	width: $moon-size;
+	height: $moon-size;
+	border-radius: 50%;
+	background-color: #d0d88d;
+	left: 100px;
+	top: 50px;
+	position: absolute;
+	transform: rotate(-35deg);
+
+	// Part of moon is displayed using after selector
+	&::after {
+		content: " ";
+		width: $moon-size;
+		height: $moon-size;
+		border-radius: 50%;
+		background-color: black;
+		left: 39%;
+		position: absolute;
+	}
+}
+
+// Moon
+.moon-reflection {
+	width: 200px;
+	height: 100px;
+	border-radius: 50%;
+	background-color: #d0d88d;
+	left: 250px;
+	top: 50px;
+	position: absolute;
+	transform: rotate(-35deg);
+}
+
+// Sea
+#sea {
+	position: absolute;
+	bottom: 0;
+	background: linear-gradient(180deg, #000000 26%, #05031b8f 76%);
+	height: 35vh;
+	width: 100%;
+}
+
+// Sea water effect
+#sea-water {
+	filter: url("#turbulence");
+	background-color: #afb77067;
+	height: 100%;
+}
+
+// Stars
+.stars {
+	background: black url(./../images/stars.png) repeat;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	display: block;
+	z-index: -2;
+}
+
+// Make stars twinkling
+.twinkling {
+	width: 10000px;
+	height: 100%;
+	background: transparent url("./../images/twinkling.png") repeat;
+	background-size: 1000px 1000px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	z-index: -1;
+
+	animation: move-background 70s linear infinite;
+}
+
+// Background mover animation
+@keyframes move-background {
+	from {
+		transform: translate3d(0px, 0px, 0px);
+	}
+	to {
+		transform: translate3d(1000px, 0px, 0px);
+	}
+}

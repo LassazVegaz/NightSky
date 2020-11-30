@@ -3,17 +3,28 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="./styles/style.css" />
 		<title>Night Sky</title>
 	</head>
 	<body>
+		<!-- Create stars -->
+		<div class="stars"></div>
+		<!-- An image with transparency -->
+		<div class="twinkling"></div>
+
+		<!-- Create moon in sky -->
 		<div class="moon"></div>
 
+		<!-- Create sea -->
 		<div id="sea">
-			<div class="moon-reflection"></div>
+			<div id="sea-water">
+				<div class="moon-reflection"></div>
+			</div>
 		</div>
 
+		<!-- Graphics parts for sea waves -->
 		<svg>
+			<!-- Filter of the graphic -->
 			<filter id="turbulence" x="0" y="0" width="100%" height="100%">
 				<feTurbulence
 					id="sea-filter"
@@ -24,6 +35,7 @@
 				<feDisplacementMap scale="2000" in="SourceGraphic"></feDisplacementMap>
 			</filter>
 
+			<!-- Animator of the graphic -->
 			<animate
 				xlink:href="#sea-filter"
 				attributeName="baseFrequency"
@@ -33,7 +45,6 @@
 				repeatCount="indefinite"
 			/>
 		</svg>
-		<!-- values="0.02 0.06;0.04 0.08;0.02 0.06" -->
 
 		<script src="script.js"></script>
 	</body>
