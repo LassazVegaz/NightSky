@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="style.css" />
+		<title>Night Sky</title>
+	</head>
+	<body>
+		<div class="moon"></div>
+
+		<div id="sea">
+			<div class="moon-reflection"></div>
+		</div>
+
+		<svg>
+			<filter id="turbulence" x="0" y="0" width="100%" height="100%">
+				<feTurbulence
+					id="sea-filter"
+					numOctaves="3"
+					seed="2"
+					baseFrequency="0.02 0.15"
+				></feTurbulence>
+				<feDisplacementMap scale="2000" in="SourceGraphic"></feDisplacementMap>
+			</filter>
+
+			<animate
+				xlink:href="#sea-filter"
+				attributeName="baseFrequency"
+				dur="60s"
+				keyTimes="0;0.5;1"
+				values="0.02 0.15;0.02 0.20;0.02 0.15"
+				repeatCount="indefinite"
+			/>
+		</svg>
+		<!-- values="0.02 0.06;0.04 0.08;0.02 0.06" -->
+
+		<script src="script.js"></script>
+	</body>
+</html>
